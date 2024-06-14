@@ -37,3 +37,4 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Vintf
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/prebuilts/manifest.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/prebuilts/framework_compatibility_matrix.xml
