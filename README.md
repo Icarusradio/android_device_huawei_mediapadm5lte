@@ -1,0 +1,1 @@
+# android_device_huawei_mediapadm5lte
