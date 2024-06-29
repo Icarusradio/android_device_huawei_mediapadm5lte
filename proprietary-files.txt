@@ -26,3 +26,9 @@ vendor/phone.prop
 # Secure Element
 vendor/bin/hw/android.hardware.secure_element@1.0-service:vendor/bin/hw/android.hardware.secure_element@1.0-service.hisi
 vendor/lib64/ese_hw_hal.so
+
+odm/hw_odm/ncfg/*
+odm/hw_odm/CMR-AL09/*
+odm/hw_odm/CMR-AL19/*
+odm/hw_odm/SHT-AL09/*
+odm/hw_odm/BASE.xml
