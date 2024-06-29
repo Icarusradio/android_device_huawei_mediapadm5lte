@@ -1,0 +1,4 @@
+# Radio
+ro.config.ipv4.mtu=1400
+persist.radio.dualltecap=0
+ro.config.hw_volte_on=true

@@ -17,3 +17,17 @@ TARGET_SCREEN_DENSITY := 420
 
 # kernel
 TARGET_KERNEL_CONFIG += modem.config
+
+# Properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+ENABLE_VENDOR_RIL_SERVICE := true
+BOARD_USES_LIBRIL_WRAPPER := true
+
+# SEPolicy
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
+# Vintf
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/prebuilts/manifest.xml
