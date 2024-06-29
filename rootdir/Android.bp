@@ -1,0 +1,25 @@
+//
+// Copyright (C) 2024 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// fstab
+prebuilt_etc {
+    name: "fstab.mediapadm5lte",
+    src: "fstab.mediapadm5lte",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "fstab.modem",
+    src: "fstab.modem",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.mediapadm5lte.rc",
+    src: "etc/init.mediapadm5lte.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}

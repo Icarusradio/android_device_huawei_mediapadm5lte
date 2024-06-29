@@ -26,8 +26,19 @@ BOARD_PROVIDES_LIBRIL := true
 ENABLE_VENDOR_RIL_SERVICE := true
 BOARD_USES_LIBRIL_WRAPPER := true
 
+# Root
+BOARD_ROOT_EXTRA_FOLDERS += \
+    3rdmodem \
+    3rdmodemnvm \
+    3rdmodemnvmbkp \
+    modem_log \
+    splash2
+    
+BOARD_ROOT_EXTRA_SYMLINKS += \
+	/odm/hw_odm:/hw_odm
+
 # SEPolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Vintf
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/prebuilts/manifest.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/prebuilts/manifest.xml

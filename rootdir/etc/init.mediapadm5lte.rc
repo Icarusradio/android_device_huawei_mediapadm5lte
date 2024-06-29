@@ -1,0 +1,88 @@
+# Copyright (C) 2024 The Android Open Source Project
+
+on fs
+    mkdir /mnt/modem 0755 root system
+    mkdir /mnt/modem/modem_secure 0755 root system
+    mkdir /mnt/modem/mnvm2:0 0755 root system
+
+    mount_all /vendor/etc/fstab.${ro.product.vendor.device}
+    mkdir /splash2/log 0775 system log
+
+    mount_all /vendor/etc/fstab.modem
+    chown radio radio /sys/devices/platform/balong_power/state
+
+on zygote-start
+    # When pureandroid test,The vold process will unmount mnt directory mounted partition ,
+    # so after the completion of the vold process started, mount_all modem partition and then boot modem.
+    
+    mount_all /vendor/etc/fstab.modem --early
+    wait /sys/devices/platform/his_modem/modem_sysboot_start
+    write /sys/devices/platform/his_modem/modem_sysboot_start 1
+    
+on post-fs-data
+    mkdir /splash2/sim 0770 root system
+    mkdir /splash2/sim/offlinelogs 0770 root system
+    write /splash2/sim/offlinelogs/balong_modem1_simoffline.txt  0
+    write /splash2/sim/offlinelogs/balong_modem2_simoffline.txt  0
+    write /splash2/sim/offlinelogs/balong_modem3_simoffline.txt  0
+    write /splash2/sim/offlinelogs/slot1_simoffline.txt  0
+    write /splash2/sim/sim_pin_file.bin  ""
+    write /splash2/sim/pin_key_file.bin  ""
+
+    chmod 0660 /splash2/sim/offlinelogs/balong_modem1_simoffline.txt
+    chmod 0660 /splash2/sim/offlinelogs/balong_modem2_simoffline.txt
+    chmod 0660 /splash2/sim/offlinelogs/balong_modem3_simoffline.txt
+    chmod 0660 /splash2/sim/offlinelogs/slot1_simoffline.txt
+    chmod 0660 /splash2/sim/sim_pin_file.bin
+    chmod 0660 /splash2/sim/pin_key_file.bin
+
+    chown radio system /splash2/sim/offlinelogs/balong_modem1_simoffline.txt
+    chown radio system /splash2/sim/offlinelogs/balong_modem2_simoffline.txt
+    chown radio system /splash2/sim/offlinelogs/balong_modem3_simoffline.txt
+    chown radio system /splash2/sim/offlinelogs/slot1_simoffline.txt
+    chown root  radio  /splash2/sim/sim_pin_file.bin
+    chown root  radio  /splash2/sim/pin_key_file.bin
+
+    symlink /splash2/sim/offlinelogs /data/offlinelogs
+    
+    mkdir /splash2/storage
+    chmod 0770 /splash2/storage
+    chown root system /splash2/storage
+    restorecon_recursive /splash2/storage
+    
+    mkdir /splash2/reliability
+    chmod 0775 /splash2/reliability
+    chown root system /splash2/reliability
+
+    mkdir /splash2/reliability/boot_fail
+    chmod 0775 /splash2/reliability/boot_fail
+    chown root system /splash2/reliability/boot_fail
+    restorecon_recursive /splash2/reliability
+    
+on boot
+    chown root radio /sys/kernel/sim/sim0_hotplug_state
+    chown root radio /sys/kernel/sim/sim1_hotplug_state
+    chown root radio /sys/kernel/sim/sim2_hotplug_state
+    chown root radio /sys/kernel/sim/sim_hotplug_state
+
+    write /splash2/sim/sim_pin_file.bin  "000000"
+
+service vendor.ril-daemon /vendor/bin/hw/rild
+    class main
+    user root
+    group radio cache inet misc audio log readproc wakelock system
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+    disabled
+    
+on property:sys.rilprops_ready=1
+    start vendor.ril-daemon
+    
+service vendor.secure_element_hal_service /vendor/bin/hw/android.hardware.secure_element@1.0-service.hisi
+    class hal
+    user secure_element
+    group secure_element system nfc
+    disabled
+
+on property:ro.boot.product.hardware.sku=SHT-AL09
+    start vendor.secure_element_hal_service
+    setprop ro.odm.config.modem_number 1

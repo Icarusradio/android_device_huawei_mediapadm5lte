@@ -1,3 +1,18 @@
 # file contexts hi3660/lte
 
 /vendor/bin/hw/android.hardware.secure_element@1.0-service.hisi			u:object_r:hal_secure_element_default_exec:s0
+
+# Mount points
+/3rdmodem(/.*)?                                 				u:object_r:modem_file:s0
+/3rdmodemnvm(/.*)?                              				u:object_r:modem_file:s0
+/3rdmodemnvmbkp(/.*)?                           				u:object_r:modem_file:s0
+/modem_log(/.*)?                                				u:object_r:modem_file:s0
+/mnt/modem/mnvm2:0(/.*)?                        				u:object_r:modem_file:s0
+/mnt/modem/modem_secure(/.*)?                   				u:object_r:modem_file:s0
+/vendor/modem/modem_fw(/.*)?                    				u:object_r:modem_vendor_file:s0
+
+/splash2(/.*)?                                  				u:object_r:splash_data_file:s0
+
+/odm/hw_odm/[^/]+/ncfg(/.*)?							u:object_r:ncfg_nv_file:s0
+/hw_odm(/.*)?          								u:object_r:ncfg_nv_file:s0
+/hw_odm/[^/]+/ncfg(/.*)?							u:object_r:ncfg_nv_file:s0
