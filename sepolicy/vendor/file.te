@@ -2,5 +2,4 @@
 type modem_file, file_type;
 type modem_vendor_file, file_type, vendor_file_type;
 type splash_data_file, file_type;
-type ncfg_nv_file, file_type;
 

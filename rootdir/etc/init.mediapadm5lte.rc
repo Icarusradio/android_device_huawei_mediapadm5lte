@@ -10,6 +10,8 @@ on fs
 
     mount_all /vendor/etc/fstab.modem
     chown radio radio /sys/devices/platform/balong_power/state
+    
+    mount none /odm/hw_odm/${ro.boot.product.hardware.sku} /hw_odm bind
 
 on zygote-start
     # When pureandroid test,The vold process will unmount mnt directory mounted partition ,

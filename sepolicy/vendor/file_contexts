@@ -13,6 +13,4 @@
 
 /splash2(/.*)?                                  				u:object_r:splash_data_file:s0
 
-/odm/hw_odm/[^/]+/ncfg(/.*)?							u:object_r:ncfg_nv_file:s0
-/hw_odm(/.*)?          								u:object_r:ncfg_nv_file:s0
-/hw_odm/[^/]+/ncfg(/.*)?							u:object_r:ncfg_nv_file:s0
+/hw_odm(/.*)?          								u:object_r:rootfs:s0

@@ -32,11 +32,9 @@ BOARD_ROOT_EXTRA_FOLDERS += \
     3rdmodemnvm \
     3rdmodemnvmbkp \
     modem_log \
-    splash2
+    splash2 \
+    hw_odm
     
-BOARD_ROOT_EXTRA_SYMLINKS += \
-	/odm/hw_odm:/hw_odm
-
 # SEPolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
