@@ -12,9 +12,6 @@ include device/huawei/hi3660/BoardConfigCommon.mk
 # Assert
 TARGET_OTA_ASSERT_DEVICE := mediapadm5lte
 
-# Display
-TARGET_SCREEN_DENSITY := 420
-
 # kernel
 TARGET_KERNEL_CONFIG += modem.config
 
