@@ -88,3 +88,11 @@ service vendor.secure_element_hal_service /vendor/bin/hw/android.hardware.secure
 on property:ro.boot.product.hardware.sku=SHT-AL09
     start vendor.secure_element_hal_service
     setprop ro.odm.config.modem_number 1
+
+on property:ro.boot.product.hardware.sku=CMR-AL09
+    start vendor.secure_element_hal_service
+    setprop ro.odm.config.modem_number 1
+
+on property:ro.boot.product.hardware.sku=CMR-AL19
+    start vendor.secure_element_hal_service
+    setprop ro.odm.config.modem_number 1
