@@ -28,6 +28,9 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.2.vendor \
     android.hardware.radio@1.4.vendor
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/ons.bin:$(TARGET_COPY_OUT_SYSTEM)/ons.bin
+
 PRODUCT_PACKAGES += \
     librilutils
 
