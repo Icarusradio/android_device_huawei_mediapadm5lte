@@ -29,8 +29,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.4.vendor
 
 PRODUCT_PACKAGES += \
-    librilutils \
-    libril
+    librilutils
 
 PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.0.vendor \
@@ -44,8 +43,7 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    $(LOCAL_PATH)/resources
+    $(LOCAL_PATH)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/huawei/mediapadm5lte/mediapadm5lte-vendor.mk)
