@@ -31,8 +31,5 @@ BOARD_ROOT_EXTRA_FOLDERS += \
     splash2 \
     hw_odm
     
-# SEPolicy
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-
 # Vintf
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/prebuilts/manifest.xml
