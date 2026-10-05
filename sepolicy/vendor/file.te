@@ -1,0 +1,3 @@
+# Only the RIL's per-interface IPv6 switch, not other networking sysctls.
+# Keep proc_net_type so netd retains its normal interface configuration access.
+type proc_m5_rmnet_ipv6, fs_type, proc_type, proc_net_type;

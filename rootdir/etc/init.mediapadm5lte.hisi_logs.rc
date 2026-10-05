@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+
+on post-fs-data
+    # Prepare the dump root before zygote-start boots the modem. Kernel-created
+    # children inherit hisi_log_file; relabel dumps left by older ROMs as well.
+    mkdir /data/hisi_logs 0770 root system
+    restorecon_recursive /data/hisi_logs

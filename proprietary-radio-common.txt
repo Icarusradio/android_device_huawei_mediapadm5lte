@@ -1,0 +1,6 @@
+# Native RIL dependencies owned and packaged by vendor/huawei/hi3660.
+# Keep them there to avoid duplicate PRODUCT_COPY_FILES destinations.
+vendor/lib/libc_secshared.so
+vendor/lib/liboeminfo.so
+vendor/lib64/libc_secshared.so
+vendor/lib64/liboeminfo.so

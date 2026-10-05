@@ -19,4 +19,13 @@ ifneq ($(filter mediapadm5lte,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
+# The stock RIL falls back to /system/ons.bin. Keep that pathname as a
+# symlink, with the operator name table on vendor where rild may read it.
+M5_ONS_SYMLINK := $(TARGET_OUT)/ons.bin
+$(M5_ONS_SYMLINK): $(TARGET_OUT_VENDOR)/etc/ons.bin $(LOCAL_PATH)/Android.mk
+	@mkdir -p $(dir $@)
+	$(hide) ln -sf /vendor/etc/ons.bin $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(M5_ONS_SYMLINK)
+
 endif

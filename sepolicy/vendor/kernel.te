@@ -1,0 +1,9 @@
+# The madapt worker reads the SKU's NV configuration; it never modifies it.
+allow kernel ncfg_nv_file:dir search;
+allow kernel ncfg_nv_file:file { getattr open read };
+
+# Blackbox creates dump subdirectories, rotates old dumps, and sets ownership
+# to root:system. Keep these operations on the dedicated log type, not /data.
+allow kernel hisi_log_file:dir { create getattr open read search write add_name remove_name rmdir setattr };
+allow kernel hisi_log_file:file { setattr unlink };
+allow kernel self:capability chown;

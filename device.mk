@@ -10,6 +10,7 @@ $(call inherit-product, device/huawei/hi3660/common.mk)
 # Init
 PRODUCT_PACKAGES += \
     init.mediapadm5lte.rc \
+    init.mediapadm5lte.hisi_logs.rc \
     fstab.mediapadm5lte \
     fstab.modem
 
@@ -23,16 +24,18 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml
 
 # Radio
+PRODUCT_SYSTEM_PROPERTIES += \
+    telephony.lteOnCdmaDevice=1
+
 PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor \
     android.hardware.radio.config@1.2.vendor \
-    android.hardware.radio@1.4.vendor
+    android.hardware.radio@1.4.vendor \
+    libhisi-ril-signal \
+    librilutils
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/ons.bin:$(TARGET_COPY_OUT_SYSTEM)/ons.bin
-
-PRODUCT_PACKAGES += \
-    librilutils
+    $(LOCAL_PATH)/prebuilts/ons.bin:$(TARGET_COPY_OUT_VENDOR)/etc/ons.bin
 
 PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.0.vendor \

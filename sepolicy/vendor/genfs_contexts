@@ -1,0 +1,11 @@
+# PMIC notification LEDs (the class aliases resolve into this subtree).
+genfscon sysfs /devices/platform/fff34000.pmic/fff34000.pmic:pmic_led@a0/leds u:object_r:sysfs_led:s0
+
+# libbalong-ril only adjusts these seven per-interface disable_ipv6 nodes.
+genfscon proc /sys/net/ipv6/conf/rmnet0/disable_ipv6 u:object_r:proc_m5_rmnet_ipv6:s0
+genfscon proc /sys/net/ipv6/conf/rmnet1/disable_ipv6 u:object_r:proc_m5_rmnet_ipv6:s0
+genfscon proc /sys/net/ipv6/conf/rmnet2/disable_ipv6 u:object_r:proc_m5_rmnet_ipv6:s0
+genfscon proc /sys/net/ipv6/conf/rmnet3/disable_ipv6 u:object_r:proc_m5_rmnet_ipv6:s0
+genfscon proc /sys/net/ipv6/conf/rmnet4/disable_ipv6 u:object_r:proc_m5_rmnet_ipv6:s0
+genfscon proc /sys/net/ipv6/conf/rmnet5/disable_ipv6 u:object_r:proc_m5_rmnet_ipv6:s0
+genfscon proc /sys/net/ipv6/conf/rmnet6/disable_ipv6 u:object_r:proc_m5_rmnet_ipv6:s0

@@ -1,0 +1,2 @@
+# Huawei connectivity chip configuration read during supplicant startup.
+get_prop(hal_wifi_supplicant_default, vendor_oem_prop)

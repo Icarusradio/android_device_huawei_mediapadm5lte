@@ -1,0 +1,2 @@
+# The smartpakit driver uses I2C_SLAVE to select the amplifier address.
+allowxperm hal_audio_default smartpakit_device:chr_file ioctl { 0x0703 };

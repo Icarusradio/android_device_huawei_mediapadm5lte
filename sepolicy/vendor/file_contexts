@@ -1,0 +1,156 @@
+# Huawei display services shipped on MediaPad M5.
+/vendor/bin/hw/vendor\.huawei\.hardware\.graphics\.displayeffect@1\.0-service u:object_r:hal_graphics_composer_default_exec:s0
+/vendor/bin/hw/vendor\.huawei\.hardware\.hwdisplay\.displayengine@1\.2-service u:object_r:hal_display_hwdisplay_exec:s0
+
+# DSP and ISP images are firmware, not libraries loaded into a core process.
+# Keep the shared Wi-Fi compatibility labels unchanged for other files.
+/vendor/firmware/hifi_6403_smartpa_with_dsp\.img u:object_r:firmware_vendor_file:s0
+/vendor/firmware/isp_fw\.elf u:object_r:firmware_vendor_file:s0
+/vendor/firmware/isp_bw\.elf u:object_r:firmware_vendor_file:s0
+
+# Modem adaptation runs in a kernel worker. Label the packaged ODM files
+# as well as their SKU-selected bind-mount alias, before the modem starts.
+/dev/madapt u:object_r:madapt_device:s0
+/odm/hw_odm/(CMR-AL09/|CMR-AL19/)?ncfg(/.*)? u:object_r:ncfg_nv_file:s0
+/hw_odm/ncfg(/.*)? u:object_r:ncfg_nv_file:s0
+
+# The legacy /system/ons.bin path is a symlink to this vendor-owned table.
+/vendor/etc/ons\.bin u:object_r:vendor_configs_file:s0
+
+# C00 EMUI 9.1 partitions. Label both by-name aliases used by ueventd and
+# physical nodes used by restorecon; their contexts must agree.
+
+# nvme
+/dev/block/by-name/nvme u:object_r:nve_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/nvme u:object_r:nve_block_device:s0
+/dev/block/mmcblk0p8 u:object_r:nve_block_device:s0
+
+# oeminfo
+/dev/block/by-name/oeminfo u:object_r:oeminfo_nvm_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/oeminfo u:object_r:oeminfo_nvm_block_device:s0
+/dev/block/mmcblk0p9 u:object_r:oeminfo_nvm_block_device:s0
+
+# secure_storage
+/dev/block/by-name/secure_storage u:object_r:teecd_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/secure_storage u:object_r:teecd_block_device:s0
+/dev/block/mmcblk0p10 u:object_r:teecd_block_device:s0
+
+# modem_om
+/dev/block/by-name/modem_om u:object_r:modem_device:s0
+/dev/block/platform/hi_mci\.0/by-name/modem_om u:object_r:modem_device:s0
+/dev/block/mmcblk0p11 u:object_r:modem_device:s0
+
+# modem_secure
+/dev/block/by-name/modem_secure u:object_r:modem_secure_device:s0
+/dev/block/platform/hi_mci\.0/by-name/modem_secure u:object_r:modem_secure_device:s0
+/dev/block/mmcblk0p7 u:object_r:modem_secure_device:s0
+
+# modemnvm_factory
+/dev/block/by-name/modemnvm_factory u:object_r:modemnvm_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/modemnvm_factory u:object_r:modemnvm_block_device:s0
+/dev/block/mmcblk0p12 u:object_r:modemnvm_block_device:s0
+
+# modemnvm_backup
+/dev/block/by-name/modemnvm_backup u:object_r:modemnvm_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/modemnvm_backup u:object_r:modemnvm_block_device:s0
+/dev/block/mmcblk0p13 u:object_r:modemnvm_block_device:s0
+
+# modemnvm_img
+/dev/block/by-name/modemnvm_img u:object_r:modemnvm_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/modemnvm_img u:object_r:modemnvm_block_device:s0
+/dev/block/mmcblk0p14 u:object_r:modemnvm_block_device:s0
+
+# modemnvm_system
+/dev/block/by-name/modemnvm_system u:object_r:modemnvm_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/modemnvm_system u:object_r:modemnvm_block_device:s0
+/dev/block/mmcblk0p15 u:object_r:modemnvm_block_device:s0
+
+# modemnvm_update
+/dev/block/by-name/modemnvm_update u:object_r:modemnvm_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/modemnvm_update u:object_r:modemnvm_block_device:s0
+/dev/block/mmcblk0p53 u:object_r:modemnvm_block_device:s0
+
+# modem_fw
+/dev/block/by-name/modem_fw u:object_r:modem_device:s0
+/dev/block/platform/hi_mci\.0/by-name/modem_fw u:object_r:modem_device:s0
+/dev/block/mmcblk0p46 u:object_r:modem_device:s0
+
+# splash2
+/dev/block/by-name/splash2 u:object_r:splash_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/splash2 u:object_r:splash_block_device:s0
+/dev/block/mmcblk0p16 u:object_r:splash_block_device:s0
+
+# cache
+/dev/block/by-name/cache u:object_r:cache_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/cache u:object_r:cache_block_device:s0
+/dev/block/mmcblk0p17 u:object_r:cache_block_device:s0
+
+# misc
+/dev/block/by-name/misc u:object_r:misc_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/misc u:object_r:misc_block_device:s0
+/dev/block/mmcblk0p20 u:object_r:misc_block_device:s0
+
+# kernel
+/dev/block/by-name/kernel u:object_r:boot_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/kernel u:object_r:boot_block_device:s0
+/dev/block/mmcblk0p39 u:object_r:boot_block_device:s0
+
+# recovery_ramdisk
+/dev/block/by-name/recovery_ramdisk u:object_r:recovery_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/recovery_ramdisk u:object_r:recovery_block_device:s0
+/dev/block/mmcblk0p41 u:object_r:recovery_block_device:s0
+
+# version
+/dev/block/by-name/version u:object_r:metadata_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/version u:object_r:metadata_block_device:s0
+/dev/block/mmcblk0p55 u:object_r:metadata_block_device:s0
+
+# userdata
+/dev/block/by-name/userdata u:object_r:userdata_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/userdata u:object_r:userdata_block_device:s0
+/dev/block/mmcblk0p66 u:object_r:userdata_block_device:s0
+
+# cust
+/dev/block/by-name/cust u:object_r:system_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/cust u:object_r:system_block_device:s0
+/dev/block/mmcblk0p60 u:object_r:system_block_device:s0
+
+# odm
+/dev/block/by-name/odm u:object_r:system_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/odm u:object_r:system_block_device:s0
+/dev/block/mmcblk0p18 u:object_r:system_block_device:s0
+
+# preas
+/dev/block/by-name/preas u:object_r:system_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/preas u:object_r:system_block_device:s0
+/dev/block/mmcblk0p62 u:object_r:system_block_device:s0
+
+# preavs
+/dev/block/by-name/preavs u:object_r:system_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/preavs u:object_r:system_block_device:s0
+/dev/block/mmcblk0p63 u:object_r:system_block_device:s0
+
+# preload
+/dev/block/by-name/preload u:object_r:system_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/preload u:object_r:system_block_device:s0
+/dev/block/mmcblk0p49 u:object_r:system_block_device:s0
+
+# product
+/dev/block/by-name/product u:object_r:system_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/product u:object_r:system_block_device:s0
+/dev/block/mmcblk0p57 u:object_r:system_block_device:s0
+
+# system
+/dev/block/by-name/system u:object_r:system_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/system u:object_r:system_block_device:s0
+/dev/block/mmcblk0p61 u:object_r:system_block_device:s0
+
+# vendor
+/dev/block/by-name/vendor u:object_r:system_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/vendor u:object_r:system_block_device:s0
+/dev/block/mmcblk0p56 u:object_r:system_block_device:s0
+
+# patch
+/dev/block/by-name/patch u:object_r:system_block_device:s0
+/dev/block/platform/hi_mci\.0/by-name/patch u:object_r:system_block_device:s0
+/dev/block/mmcblk0p64 u:object_r:system_block_device:s0

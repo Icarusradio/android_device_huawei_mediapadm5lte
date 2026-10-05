@@ -28359,6 +28359,15 @@ compatibleVersion=1目前包含 217个国家和地区，1334套运营商参数�
     mmsc="http://mmsc.myuni.com.cn"
     type="mms"
   />
+  <apn carrier="China Telecom LTE"
+    mcc="460"
+    mnc="11"
+    apn="ctlte"
+    type="default,ia,hipri,supl,fota,cbs"
+    authtype="0"
+    protocol="IPV4V6"
+    roaming_protocol="IP"
+  />
   <apn carrier="CTNET"
     mcc="460"
     mnc="03"

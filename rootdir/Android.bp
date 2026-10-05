@@ -23,3 +23,10 @@ prebuilt_etc {
     sub_dir: "init/hw",
     vendor: true,
 }
+
+// hisi_log_file is core data: run its setup in init, not vendor_init.
+prebuilt_etc {
+    name: "init.mediapadm5lte.hisi_logs.rc",
+    src: "etc/init.mediapadm5lte.hisi_logs.rc",
+    sub_dir: "init",
+}

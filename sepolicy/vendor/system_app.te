@@ -1,0 +1,2 @@
+# The bundled Huawei SUPL application connects to the vendor SUPL HAL.
+hal_client_domain(system_app, hal_hisupl)

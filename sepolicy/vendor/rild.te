@@ -1,0 +1,5 @@
+# madapt has read/write file operations, but no ioctl handler.
+allow rild madapt_device:chr_file { getattr open read write };
+
+# Let the RIL select IPv4-only or dual-stack operation for each data interface.
+allow rild proc_m5_rmnet_ipv6:file { getattr open read write };

@@ -1,0 +1,2 @@
+# Read the GNSS chip type in the device tree.
+allow hal_gnss_default proc_gps_type:file r_file_perms;
