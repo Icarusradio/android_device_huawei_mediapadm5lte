@@ -41,6 +41,10 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.0.vendor \
     android.hardware.nfc@1.1.vendor
 
+# Use upstream SecureElement sources with only the HAL callback fix replaced.
+PRODUCT_PACKAGES += \
+    SecureElementHuawei
+
 # RRO
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
