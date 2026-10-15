@@ -46,6 +46,8 @@ PRODUCT_PACKAGES += \
     SecureElementHuawei
 
 # RRO
+PRODUCT_PACKAGES += huawei-wifi-tofu-service
+
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \

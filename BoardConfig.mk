@@ -13,6 +13,8 @@ include device/huawei/hi3660/BoardConfigCommon.mk
 # mmcblk0pN assignments in the shared Huawei policy.
 BOARD_SEPOLICY_M4DEFS += huawei_mediapadm5lte=true
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 
 # Dynamic partitions (China EMUI 9.1 layout)
 # Reuse preload as backing storage; leave prets and pretvs untouched.

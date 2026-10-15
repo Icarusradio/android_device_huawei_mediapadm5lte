@@ -1,0 +1,2 @@
+hal_attribute(huawei_wifi_tofu)
+type hal_huawei_wifi_tofu_service, vendor_service, protected_service, hal_service_type, service_manager_type;

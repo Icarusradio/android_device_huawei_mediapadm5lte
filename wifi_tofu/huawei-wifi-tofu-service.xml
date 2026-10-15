@@ -1,0 +1,7 @@
+<manifest version="1.0" type="device">
+    <hal format="aidl">
+        <name>vendor.lineage.wifi.tofu</name>
+        <version>1</version>
+        <fqname>IWifiTofuBridge/default</fqname>
+    </hal>
+</manifest>

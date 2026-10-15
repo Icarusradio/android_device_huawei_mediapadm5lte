@@ -1,0 +1,13 @@
+type huawei_wifi_tofu, domain;
+type huawei_wifi_tofu_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(huawei_wifi_tofu)
+hal_server_domain(huawei_wifi_tofu, hal_huawei_wifi_tofu)
+binder_use(huawei_wifi_tofu)
+
+allow huawei_wifi_tofu self:unix_dgram_socket create_socket_perms;
+allow huawei_wifi_tofu self:unix_stream_socket create_stream_socket_perms;
+allow huawei_wifi_tofu wifi_vendor_data_file:dir search;
+allow huawei_wifi_tofu wpa_data_file:dir search;
+allow huawei_wifi_tofu wpa_data_file:sock_file write;
+allow huawei_wifi_tofu hal_wifi_supplicant_default:unix_dgram_socket sendto;
+allow hal_wifi_supplicant_default huawei_wifi_tofu:unix_dgram_socket sendto;

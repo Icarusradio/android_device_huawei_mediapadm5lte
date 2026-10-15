@@ -1,0 +1,5 @@
+service vendor.wifi-tofu /vendor/bin/hw/huawei-wifi-tofu-service
+    class main
+    user wifi
+    group wifi
+    interface aidl vendor.lineage.wifi.tofu.IWifiTofuBridge/default

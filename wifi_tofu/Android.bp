@@ -1,0 +1,35 @@
+// SPDX-License-Identifier: Apache-2.0
+cc_binary {
+    name: "huawei-wifi-tofu-service",
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: [
+        "service.cpp",
+        "TofuMonitor.cpp",
+    ],
+    shared_libs: [
+        "libbinder_ndk",
+        "liblog",
+        "vendor.lineage.wifi.tofu-V1-ndk",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+    ],
+    init_rc: ["huawei-wifi-tofu-service.rc"],
+    vintf_fragments: ["huawei-wifi-tofu-service.xml"],
+}
+
+cc_test_host {
+    name: "huawei-wifi-tofu-monitor-test",
+    srcs: [
+        "TofuMonitor.cpp",
+        "TofuMonitorTest.cpp",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+    ],
+}
