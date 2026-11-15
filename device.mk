@@ -17,6 +17,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service.huawei-compat
 
+# Graphics
+PRODUCT_PACKAGES += libGLES_huawei_compat
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
