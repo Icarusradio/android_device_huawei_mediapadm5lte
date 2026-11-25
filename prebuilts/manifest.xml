@@ -79,7 +79,7 @@
     <hal format="hidl">
         <name>vendor.huawei.hardware.radio.ims</name>
         <transport>hwbinder</transport>
-        <version>1.2</version>
+        <version>1.0</version>
         <interface>
             <name>IRadioIms</name>
             <instance>rildi</instance>
