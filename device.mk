@@ -7,6 +7,9 @@
 # Inherit from hi3660
 $(call inherit-product, device/huawei/hi3660/common.mk)
 
+PRODUCT_SYSTEM_PROPERTIES += \
+    telephony.lteOnCdmaDevice=1
+
 # Enable the 64-bit, known-blob audio stream ABI adapter for this product only.
 $(call soong_config_set,huaweiAudioVars,mediapadm5lte_stream_compat,true)
 
